@@ -1,0 +1,66 @@
+//This is the master script file to check that the program works as it should
+
+//Initialise Constants
+
+
+
+CONST cQuote            "\22"
+CONST cBackSlash        "\5C"
+CONST cAddrA            "00809814040f"
+CONST cBtConsoleVer     "v1.0.7"
+CONST cTrue             "true"
+DECLARE vCmd
+DECLARE vResp
+DECLARE vWaitTime
+DECLARE vLen
+DECLARE vFullResp
+DECLARE vFolder
+DECLARE vFolder1
+DECLARE vBuffer
+DECLARE vLen
+
+
+//FILEOPEN 2 "hello" "File1000.txt"
+FILEOPEN 0 "read" "File1000.txt"
+FILEOPEN 1 "write" "newfile.txt"
+SETVAR vLen "100"
+FILEREAD 0 vBuffer vLen
+PRINT "Read [vLen] bytes"
+FILEWRITE 1 vBuffer
+SETVAR vLen "200"
+FILEREAD 0 vBuffer vLen
+PRINT "Read [vLen] bytes"
+FILEWRITE 1 vBuffer
+FILECLOSE 1
+FILECLOSE 0
+FILEEXISTS true "newfile.txt"
+
+//PRINT "World"
+//SETVAR vCmd "Hello\[\]"
+//PRINT "vCmd = [vCmd]"
+//SETVAR vCmd "Hello\5b"
+//PRINT "vCmd = [vCmd]"
+
+//GETCWD vFolder
+//PRINT "HELLO [vFolder]"
+//PRINT "[vFolder]"
+
+//SETVAR vFolder1 "[vFolder]"
+//STRCAT vFolder1 "\\FtpRoot"
+//PRINT "vFolder1 = [vFolder1]"
+//PRINT "\5b"
+
+//FILEEXISTS true "..\\BaseHost.cpp"
+//FILEEXISTS [cTrue] "BtConsole.exe"
+//FOLDEREXISTS true "Log"
+//FOLDEREXISTS true "..\\obj"
+
+//EXECUTE "BtConsole.Exe"
+
+//EXECUTE "wzunzip.Exe -d ftptest.zip"
+//EXECUTE "cmd /C [cQuote]rmdir /S /Q ftptest[cQuote]"
+
+//FILECOMPARE false "notAutoRun.scr" "TestBtConsole.scr"
+//FILECOMPARE true "notAutoRun.scr" "notAutoRun.scr"
+
+END

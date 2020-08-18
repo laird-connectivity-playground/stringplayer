@@ -1,0 +1,3 @@
+This file exists purely so that folder gets created when the 
+UwScriptPC project is GETted on a new PC.
+In the absens of the AutFiles folder the build fails

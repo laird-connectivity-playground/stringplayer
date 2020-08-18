@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="target\StringPlayer.exe"/>
+    <OBJFILES value="obj\StringPlayer.obj obj\TMainForm.obj obj\AtHost.obj obj\BaseHost.obj 
+      obj\TfrmMessage.obj obj\Misc.obj obj\TRegression.obj obj\TScriptSource.obj 
+      obj\TfrmPort.obj obj\AtMyHost.obj obj\EmptyHost.obj obj\TFrmTrace.obj 
+      obj\PipeConsoleHost.obj obj\TFrmAggLogger.obj obj\HexMyHost.obj 
+      obj\BaseUartHost.obj obj\MPointMyHost.obj obj\OcHost.obj 
+      obj\TChildProcIF.obj obj\TPipeCache.obj"/>
+    <RESFILES value="StringPlayer.res"/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) TMainForm.dfm TfrmMessage.dfm TfrmPort.dfm TFrmTrace.dfm 
+      TFrmAggLogger.dfm"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value="bcbie.lib A406_R61.lib vclx.lib vcl.lib rtl.lib"/>
+    <SPARELIBS value="rtl.lib vcl.lib vclx.lib A406_R61.lib bcbie.lib"/>
+    <PACKAGES value="rtl.bpi vcl.bpi vclx.bpi bcbsmp.bpi qrpt.bpi dbrtl.bpi vcldb.bpi 
+      bdertl.bpi ibsmp.bpi vcldbx.bpi teeui.bpi teedb.bpi tee.bpi teeqr.bpi 
+      ibxpress.bpi bcbie.bpi vclie.bpi inetdb.bpi inet.bpi nmfast.bpi dclocx.bpi 
+      bcb2kaxserver.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value=""/>
+    <SYSDEFINES value="NO_STRICT"/>
+    <MAINSOURCE value="StringPlayer.cpp"/>
+    <INCLUDEPATH value="$(BCB)\Vcl\APRO\v4.07\source;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="$(BCB)\Projects\Lib;$(BCB)\Vcl\APRO\v4.07\source;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par -w-8027 -w-aus"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-O2 -H=c:\borland\CBUILD~1\lib\vcl60.csm -Hc -Vx -Ve -X- -a8 -b- -k- -vi 
+      -c -tW -tWM"/>
+    <PFLAGS value="-N2obj -N0obj -$Y- -$L- -$D- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zn"/>
+    <LFLAGS value="-Iobj -D&quot;&quot; -aa -Tpe -x -Gn"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="StringPlayer.cpp" FORMNAME="" UNITNAME="StringPlayer" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="StringPlayer.res" FORMNAME="" UNITNAME="StringPlayer.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TMainForm.cpp" FORMNAME="frmMain" UNITNAME="TMainForm" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="AtHost.cpp" FORMNAME="" UNITNAME="AtHost" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BaseHost.cpp" FORMNAME="" UNITNAME="BaseHost" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TfrmMessage.cpp" FORMNAME="frmMessage" UNITNAME="TfrmMessage" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Misc.cpp" FORMNAME="" UNITNAME="Misc" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TRegression.cpp" FORMNAME="" UNITNAME="TRegression" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TScriptSource.cpp" FORMNAME="" UNITNAME="TScriptSource" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TfrmPort.cpp" FORMNAME="frmPort" UNITNAME="TfrmPort" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="AtMyHost.cpp" FORMNAME="" UNITNAME="AtMyHost" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="EmptyHost.cpp" FORMNAME="" UNITNAME="EmptyHost" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TFrmTrace.cpp" FORMNAME="frmTrace" UNITNAME="TFrmTrace" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="PipeConsoleHost.cpp" FORMNAME="" UNITNAME="PipeConsoleHost" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TFrmAggLogger.cpp" FORMNAME="frmAggLogger" UNITNAME="TFrmAggLogger" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="HexMyHost.cpp" FORMNAME="" UNITNAME="HexMyHost" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BaseUartHost.cpp" FORMNAME="" UNITNAME="BaseUartHost" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MPointMyHost.cpp" FORMNAME="" UNITNAME="MPointMyHost" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="OcHost.cpp" FORMNAME="" UNITNAME="OcHost" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TChildProcIF.cpp" FORMNAME="" UNITNAME="TChildProcIF.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TPipeCache.cpp" FORMNAME="" UNITNAME="TPipeCache.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=2057
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[Excluded Packages]
+c:\borland\cbuilder6\Bin\dclite60.bpl=Borland Integrated Translation Environment
+
+[HistoryLists\hlIncludePath]
+Count=2
+Item0=$(BCB)\Vcl\APRO\v4.07\source;$(BCB)\include;$(BCB)\include\vcl
+Item1=..\BondWizard;$(BCB)\Vcl\APRO\v4.07\source;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=3
+Item0=$(BCB)\Projects\Lib;$(BCB)\Vcl\APRO\v4.07\source;$(BCB)\lib\obj;$(BCB)\lib
+Item1=$(BCB)\Vcl\APRO\v4.07\source;$(BCB)\lib\obj;$(BCB)\lib
+Item2=..\BondWizard;$(BCB)\Vcl\APRO\v4.07\source;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[HistoryLists\hlIntOutputDir]
+Count=2
+Item0=obj
+Item1=..\BondWizard\obj
+
+[HistoryLists\hlFinalOutputDir]
+Count=2
+Item0=target\
+Item1=target
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=ACCEPT script=LineTop001.scr  &quot;cwd=D:\Work\Utilities\stringplayer\target\RegrTest\SourceInfoOnFail\main&quot; LOGPATH=.\Log  AGGLOG MAXTRY=2
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+  </IDEOPTIONS>
+</PROJECT>

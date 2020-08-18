@@ -1,0 +1,28 @@
+//This is the master script file to check that the program works as it should
+
+//Initialise Constants
+
+
+
+CONST cQuote            "\22"
+CONST cBackSlash        "\5C"
+CONST cAddrA            "00809814040f"
+CONST cBtConsoleVer     "v1.0.7"
+CONST cTrue             "true"
+DECLARE vCmd
+DECLARE vResp
+DECLARE vWaitTime
+DECLARE vLen
+DECLARE vFullResp
+DECLARE vFolder
+DECLARE vFolder1
+DECLARE vBuffer
+DECLARE vLen
+DECLARE vName
+
+set vName "Msg1"
+
+
+#include "Prn[vName].sub"
+
+END

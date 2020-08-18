@@ -1,0 +1,37 @@
+TITLE "Test PIPE"
+
+CONST cQuote            "\22"
+CONST cAddrA            "00809814040f"
+CONST cBtConsoleVer     "v1.0.8"
+DECLARE vCmd
+DECLARE vResp
+DECLARE vWaitTime
+DECLARE vLen
+DECLARE vFullResp
+
+// https://stackoverflow.com/questions/35969730/how-to-read-output-from-cmd-exe-using-createprocess-and-createpipe
+
+CONST vAppName "/K C:/Python37/python.exe"
+CONST vCurDir  "./"
+
+PRINT "vAppName=[vAppName]"
+PRINT "vCurDir =[vCurDir]"
+
+//JUMP aaa
+
+SET vResp ""
+PORT_PIPE 7 "[vAppName]" "[vCurDir]"
+DELAY "1000"
+FLUSHRX 7
+TXSTRING 7 "print('Hello World')\r\n"
+DELAY "1000"
+
+FLUSHRX 7
+
+
+TITLE "Test PIPE Close"
+PORT_CLOSE 7
+
+LABEL aaa
+
+//END

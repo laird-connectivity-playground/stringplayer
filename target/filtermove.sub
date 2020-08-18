@@ -1,0 +1,34 @@
+declare vRespHex
+declare vResp
+declare vRespInt
+
+//               3 5 7 0 5 5   u s
+//SET vRespHex "3335373035352075730D0A"
+//SET vRespHex "3335373035352075730D0A0D0A0D756172743A7E24201B5B38441B5B4A756172743A7" //357055 us\r\n\r\n\r\nuart:~$ [8D[Juart:
+SET vRespHex "7561727420203335373035352075730D0A0D0A0D756172743A7E24201B5B38441B5D4A756172743A7" //uart  357055 us\r\n\r\n\r\nuart:~$ [8D]Juart:
+//SET vRespHex "3335373035352075730D0A0D0A0D756172743A7E24201B5B38441B5D4A756172743A7" //357055 us\r\n\r\n\r\nuart:~$ [8D]Juart:
+//SET vRespHex "3335373035352075730D0A0D0A0D756172743A7E24201B5B38441B204A756172743A7" //357055 us\r\n\r\n\r\nuart:~$ [8D Juart:
+//SET vRespHex "3335373035352075730D0A0D0A0D756172743A7E24201B2038441B204A756172743A7" //357055 us\r\n\r\n\r\nuart:~$  8D Juart:
+PRINT "vRespHex=([vRespHex])"
+
+STRDEHEXIZE 0 vResp vRespHex
+PRINT "***vResp=[vResp]***"
+
+//Search for the first space and drop data after and including the space
+FILTERMOVE not 2 vRespInt vResp
+PRINT "---vRespInt=([vRespInt])"
+PRINT "###vResp=[vResp]###"
+
+
+FILTERMOVE 2 vRespInt vResp
+//FILTERMOVE 0x20 vRespInt vResp
+//FILTERMOVE 0x20Z vRespInt vResp
+//FILTERMOVE 0b20 vRespInt vResp
+//FILTERMOVE 0b100000 vRespInt vResp
+
+//Check if time has been exceeded
+PRINT "vRespInt=[vRespInt]"
+PRINT "vResp=[vResp]"
+TST vRespInt "500000"
+IFGE
+FAIL "Non-verbose startup took longer than 500ms, this is too long"

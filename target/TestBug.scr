@@ -1,0 +1,14 @@
+PORT 1 "COM60" "115200,N,8,1,,0"
+PORT 2 "COM61" "115200,N,8,1,,0"
+//SENDCMD 1         "...\5d\5b\3a\40\2b\3d\5f\23\60\2e\2c\3f\2f\7e\7c\2a\25\3c\3ellmmjsi..."
+//WAITRESPEX 2000 2 "...\5d\5b\3a\40\2b\3d\5f\23\60\2e\2c\3f\2f\7e\7c\2a\25\3c\3ellmmjsi..."
+SENDCMD 1         "...\5d\5b\3a\40\2b\3d\5f\23\60\c2\ac\2e\2c\3f\2f\7e\7c\2a\25\3c\3ellmmjsi..."
+WAITRESPEX 2000 2 "...\5d\5b\3a\40\2b\3d\5f\23\60\\C2\\AC\2e\2c\3f\2f\7e\7c\2a\25\3c\3ellmmjsi..."
+//SENDCMD 1         "...HELLO..."
+//WAITRESPEX 2000 2 "...HELLO..."
+//SENDCMD 1         "...\5d\5b\3a\40\2b\3d\5f\23\60\c2\2e\2c\3f\2f\7e\7c\2a\25\3c\3ellmmjsi..."
+//WAITRESPEX 2000 2 "...\5d\5b\3a\40\2b\3d\5f\23\60\c2\2e\2c\3f\2f\7e\7c\2a\25\3c\3ellmmjsi..."
+SENDCMD 1         "\c2"
+WAITRESPEX 2000 2 "\\C2"
+PORT_CLOSE 1
+PORT_CLOSE 2

@@ -1,0 +1,11 @@
+--STARTUP--
+  ServiceEvtInit
+    SrcCompileScriptFile
+      SrcCompileFile <-----------------+
+        SrcCompileLine                 |
+          SrcCompileToObject           |
+          --#--                        |
+            SrcCompileDirective        |
+              --INCLUDE--              |
+                SrcFileExists          |
+                SrcCompileFile    >----+

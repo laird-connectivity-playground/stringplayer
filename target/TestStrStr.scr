@@ -1,0 +1,130 @@
+//This is the master script file to check that the program works as it should
+
+//Initialise Constants
+
+
+
+CONST cQuote            "\22"
+CONST cBackSlash        "\5C"
+CONST cAddrA            "00809814040f"
+CONST cBtConsoleVer     "v1.0.7"
+CONST cTrue             "true"
+DECLARE vStr
+DECLARE vSubStr
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+SET vStr "\nHello World\r"
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+SET vSubStr "Hel"
+STRSTR vStr vSubStr
+IFZ
+  PRINTE "STRSTR [vStr] contains [vSubStr]"
+IFNZ
+  PRINTE "STRSTR [vStr] does NOT contains [vSubStr]"
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+SET vSubStr "Help"
+STRSTR vStr vSubStr
+IFZ
+  PRINTE "STRSTR [vStr] contains [vSubStr]"
+IFNZ
+  PRINTE "STRSTR [vStr] does NOT contains [vSubStr]"
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+SET vSubStr "HEL"
+STRSTRI vStr vSubStr
+IFZ
+  PRINTE "STRSTRI [vStr] contains [vSubStr]"
+IFNZ
+  PRINTE "STRSTRI [vStr] does NOT contains [vSubStr]"
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+SET vSubStr "HELP"
+STRSTRI vStr vSubStr
+IFZ
+  PRINTE "STRSTRI [vStr] contains [vSubStr]"
+IFNZ
+  PRINTE "STRSTRI [vStr] does NOT contains [vSubStr]"
+
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+SET vSubStr "lo W"
+STRSTR vStr vSubStr
+IFZ
+  PRINTE "STRSTR [vStr] contains [vSubStr]"
+IFNZ
+  PRINTE "STRSTR [vStr] does NOT contains [vSubStr]"
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+SET vSubStr "lo  W"
+STRSTR vStr vSubStr
+IFZ
+  PRINTE "STRSTR [vStr] contains [vSubStr]"
+IFNZ
+  PRINTE "STRSTR [vStr] does NOT contains [vSubStr]"
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+SET vSubStr "LO W"
+STRSTRI vStr vSubStr
+IFZ
+  PRINTE "STRSTRI [vStr] contains [vSubStr]"
+IFNZ
+  PRINTE "STRSTRI [vStr] does NOT contains [vSubStr]"
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+SET vSubStr "LO  W"
+STRSTRI vStr vSubStr
+IFZ
+  PRINTE "STRSTRI [vStr] contains [vSubStr]"
+IFNZ
+  PRINTE "STRSTRI [vStr] does NOT contains [vSubStr]"
+
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+SET vSubStr "World\r"
+STRSTR vStr vSubStr
+IFZ
+  PRINTE "STRSTR [vStr] contains [vSubStr]"
+IFNZ
+  PRINTE "STRSTR [vStr] does NOT contains [vSubStr]"
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+SET vSubStr "World \r"
+STRSTR vStr vSubStr
+IFZ
+  PRINTE "STRSTR [vStr] contains [vSubStr]"
+IFNZ
+  PRINTE "STRSTR [vStr] does NOT contains [vSubStr]"
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+SET vSubStr "WORLD\r"
+STRSTRI vStr vSubStr
+IFZ
+  PRINTE "STRSTRI [vStr] contains [vSubStr]"
+IFNZ
+  PRINTE "STRSTRI [vStr] does NOT contains [vSubStr]"
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+SET vSubStr "WORLD \r"
+STRSTRI vStr vSubStr
+IFZ
+  PRINTE "STRSTRI [vStr] contains [vSubStr]"
+IFNZ
+  PRINTE "STRSTRI [vStr] does NOT contains [vSubStr]"
+
+
+END

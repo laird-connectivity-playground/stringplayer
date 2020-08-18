@@ -1,0 +1,49 @@
+TITLE "Test PIPE"
+
+CONST cQuote            "\22"
+CONST cAddrA            "00809814040f"
+CONST cBtConsoleVer     "v1.0.8"
+DECLARE vCmd
+DECLARE vResp
+DECLARE vWaitTime
+DECLARE vLen
+DECLARE vFullResp
+DECLARE vCount
+
+CONST vAppName "C:/Python37/python.exe  interactive_pyaci.py -d COM67"
+CONST vCurDir  "D:/__REGR__/PyACI-Test/scripts/interactive_pyaci/"
+
+PRINT "vAppName=[vAppName]"
+PRINT "vCurDir =[vCurDir]"
+
+//JUMP aaa
+
+SET vResp ""
+PORT_PIPE 7 "[vAppName]" "[vCurDir]"
+DELAY "2000"
+FLUSHRX 7
+TXSTRING 7 "send(cmd.Echo([cQuote]Hello[cQuote]))\r\n"
+DELAY "2000"
+WAITRESPEX 2000 7 "COM67"
+PORTINFO vCount 7 1
+PRINT "PORTINFO 1 = [vCount]"
+//WAITRESPEX 2000 7 "Hello"
+WAITRESPEX 2000 7 "'Hello')}}\r\n"
+//SAVERESPNE vResp 7
+//CONTAIN vResp "Hello"
+//PRINT "vResp=[vResp]"
+
+FLUSHRX 7
+
+DEFTIMEOUT "5000"
+SETDTR 7 "ON"
+SETRTS 7 "ON"
+SETDTR 7 "OFF"
+SETRTS 7 "OFF"
+
+TITLE "Test PIPE Close"
+//PORT_CLOSE 7
+
+LABEL aaa
+
+//END

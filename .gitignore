@@ -1,0 +1,14 @@
+# Project specific build directories
+*.~*
+obj/*
+*.tds
+target/LOG/*
+target/*.zip
+CONN-GUIDE-STRINGPLAYER*.pdf
+target/gash.txt
+target/help.txt
+target/UwfMake.exe
+target/vcruntime140.dll
+target/_archive_/*
+target/RegrTest/SourceInfoOnFail/main/Log/*
+

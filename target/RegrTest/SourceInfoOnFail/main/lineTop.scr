@@ -1,0 +1,33 @@
+//###############################################################################
+// File : LineTop.scr
+//###############################################################################
+//
+#includefolder0 ".\"
+#includefolder1 "..\"
+#includefolder2 "..\sbr\"
+#includefolder3 "..\sub\"
+
+TITLE "**** LineTop.scr START****"
+
+PORT 0  "COM53" "115200,N,8,1,,0"
+
+
+SENDCMD 0 "AT \r"
+//WAITRESPEX 1000 0 "\n00\r"
+//#include "LineER.sbr"
+#include "LineOK.sbr"
+//#include "LineOKa.sbr"
+
+#include "DisableLogging.sbr"
+
+PRINT "This is a print message"
+
+SENDCMD 0 "AT\r"
+//WAITRESPEX 1000 0 "\n00\r"
+//#include "LineOK.sbr"
+#include "LineER.sbr"
+
+
+PORT_CLOSE 0
+DELAY "1000"
+TITLE "**** LineTop.scr END****"

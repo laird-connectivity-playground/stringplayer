@@ -1,0 +1,164 @@
+//This is the master script file to check that the program works as it should
+
+//Initialise Constants
+CONST cBdAddrA          "00809814030C"
+CONST cBdAddrB          "00809814020E"
+CONST cVersion          "1.5.36"
+CONST cMagicCmd         "!<BISM>!\r"
+CONST cBreakTime        "500"
+CONST cBreakMagicTime   "600"
+CONST cPostBreakTime    "500"
+CONST cOK               "\r\nOK\r\n"
+CONST cERR              "\r\nERROR "
+CONST cUuidSPP          "1101"
+CONST cUuidDUN          "1103"
+CONST cDefDevClass      "001F00"
+CONST cDefFNameA        "TDK blu2i 14030C"
+CONST cDefFNameB        "TDK blu2i 14020E"
+CONST cQuote            "\22"
+CONST cEmptyString      "\22\22"
+CONST cInqRespTime      "10"
+CONST cAtzDelay         "5500"
+CONST cPinCode          "1234"
+CONST cPairTimeout      "15000"
+
+DECLARE vCmd
+DECLARE vResp
+DECLARE vWaitTime
+DECLARE vLen
+
+
+SET vCmd "Hello World"
+STRLEN vCmd vLen
+PRINT "Length of [vCmd] is [vLen]"
+
+END
+
+PORT 0 "COM11" "9600,N,8,1"
+PORT 1 "COM9"  "9600,N,8,1"
+DEFTIMEOUT "2000"
+SETDTR 0 "ON"
+SETRTS 0 "ON"
+SETDTR 1 "ON"
+SETRTS 1 "ON"
+
+SET vCmd    "AT+BTX\r"
+SET vResp   "[vCmd][cOK]"
+SEND -1 1 "[vCmd]" 1 "[vResp]"
+
+SET vWaitTime "[cPairTimeout]"
+DIV vWaitTime "1000"
+SUB vWaitTime "6"
+SET vCmd    "ATS514=[vWaitTime]\r"
+SET vResp   "[vCmd][cOK]"
+SEND -1 0 "[vCmd]" 0 "[vResp]"
+
+SET vCmd    "AT+BTW[cBdAddrB]\r"
+SET vResp   "[vCmd][cOK]"
+SEND -1 0 "[vCmd]" 0 "[vResp]"
+
+WAITRESP [cPairTimeout] 0 "\r\nPAIR 1 000000000000\r\n"
+
+
+END
+//=============================================================
+
+
+DECLARE     VAR1
+DECLARE     VAR2
+DECLARE     VAR3
+
+SET VAR1 "Hello"
+SET VAR2 "1"
+SET VAR3 "[VAR[VAR2]] World [VAR1]"
+
+PRINT "[VAR3]"
+END
+
+PORT 0 "COM3" "9600,N,8,1"
+
+PRINT "Application Version %SysVarAppVersion%"
+
+CONST       cVAR   "HELLO"
+
+DECLARE     VARNAME
+DECLARE     ATI1RESP
+DECLARE     FRM_VERSION
+DECLARE     NEWSTATE
+DECLARE     TOTAL
+DECLARE     PORTA
+
+DEFTIMEOUT "1234"
+
+SETVAR      TOTAL  "123%%"
+SETVAR      VARNAME "660"
+SETVAR      ATI1RESP "ati1\r\r\n%VARNAME%\r\nOK\r\n"
+SETVAR      FRM_VERSION "1.5.35"
+
+//#include "MasterTestScript.txt"
+
+SETVAR      PORTA "0"
+BREAKON     %PORTA%   500
+BREAKOFF    0   1000
+
+SETCOMMS    0 "9600,N,8,1"
+
+//TXSTRING 0 "AT\r"
+
+SETVAR      TOTAL  "5"
+LABEL RepeatTest
+    SEND        -1 0 "ati8%TOTAL%\r" 0 "ati8%TOTAL%\r\r\nTDK Systems Europe Ltd, UK, (c)2003\r\nOK\r\n"
+    ADD TOTAL "-1"
+    JUMPNZ RepeatTest
+
+LABEL Hello
+LABEL Hello1
+
+ADD TOTAL "2"
+ADD TOTAL "-125"
+
+
+TITLE "Test 1"
+PRINT "Get Firmware Version"
+SEND        -1 0 "ati3\r"        0   "ati3\r\r\n%FRM_VERSION%\r\nOK\r\n"
+SEND        -1 0 "ati3\r"        0   "ati3\r\r\n1.5.35\r\nOK\r\n"
+SEND        -1 0 "ati1\r"        0   "%ATI1RESP%"
+PRINT "SendWait"
+SENDWAIT    500 0 "ati4\r"
+
+FLUSHRX 0
+FLUSHRX 1
+
+//PRINT "Delay Start"
+//DELAY       "1000"
+//PRINT "Delay End"
+
+SEND        -1 0 "AT\r"          0   "AT\r\r\nOK\r\n"
+SEND        -1 0 "at\r"          0   "at\r\r\nOK\r\n"
+
+
+TITLE "Test 2"
+SEND        -1 0 "as\r"          0   "as\r\r\nERROR 05\r\n"
+
+#include "SubTestScript.scs"
+
+SAVERESP VARNAME 0
+PRINT "Last response was:\r%VARNAME%"
+PRINTE "Last response was:%VARNAME%"
+
+CHECKDSR 0 "ON"
+//CHECKDSR 0 "OFF"
+//SETDTR 0 "ON"
+SETVAR  NEWSTATE "ON"
+SETDTR 0 "%NEWSTATE%"
+CHECKDSR 0 "%NEWSTATE%"
+
+TITLE "Test 3"
+
+SET     VARNAME "Hello"
+CHECK   VARNAME "Hello"
+SET     VARNAME "WORLD%FRM_VERSION%"
+CHECK   VARNAME "WORLD%FRM_VERSION%"
+
+END
+

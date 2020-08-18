@@ -1,0 +1,70 @@
+CONST BTAddr "0016A40F1019"
+
+declare vTmpA
+declare vTmpB
+declare vTmpC
+declare MatchChar
+declare ThisChar
+
+SET vTmpA ""
+SET vTmpB ""
+SET vTmpC "0"
+
+LABEL ExtractLoop
+MID$ ThisChar "[BTAddr]" [vTmpC] 1
+
+//This is printing 0 - it should not be equal to 0
+print "ThisChar: [ThisChar]"
+
+set MatchChar "A"
+STRSTR MatchChar ThisChar
+IFZ
+SET vTmpA "[vTmpA]41"
+JUMPZ Doneit
+
+set MatchChar "B"
+STRSTR MatchChar ThisChar
+IFZ
+SET vTmpA "[vTmpA]42"
+JUMPZ Doneit
+
+set MatchChar "C"
+STRSTR MatchChar ThisChar
+IFZ
+SET vTmpA "[vTmpA]43"
+JUMPZ Doneit
+
+set MatchChar "D"
+STRSTR MatchChar ThisChar
+IFZ
+SET vTmpA "[vTmpA]44"
+JUMPZ Doneit
+
+set MatchChar "E"
+STRSTR MatchChar ThisChar
+IFZ
+SET vTmpA "[vTmpA]45"
+JUMPZ Doneit
+
+set MatchChar "F"
+STRSTR MatchChar ThisChar
+IFZ
+SET vTmpA "[vTmpA]46"
+JUMPZ Doneit
+
+//Is a number so convert
+//ADD MatchChar "48"
+//SET vTmpB "%X"
+//SPRINTHEX vTmpB "[MatchChar]"
+//SET vTmpA "[vTmpA][vTmpB]"
+
+LABEL DoneIt
+
+ADD vTmpC "1"
+
+TST vTmpC "12"
+JUMPLE ExtractLoop
+
+print "vTmpA: [vTmpA]"
+print "vTmpB: [vTmpB]"
+

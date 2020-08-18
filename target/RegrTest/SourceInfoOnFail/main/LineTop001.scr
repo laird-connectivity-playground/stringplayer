@@ -1,0 +1,28 @@
+//###############################################################################
+//ACCEPT script=LineTop001.scr  "cwd=D:\Work\Utilities\stringplayer\target\RegrTest\SourceInfoOnFail\main" LOGPATH=.\Log  AGGLOG MAXTRY=1
+//###############################################################################
+//
+#includefolder0 ".\"
+#includefolder1 "..\"
+#includefolder2 "..\sbr\"
+#includefolder3 "..\sub\"
+
+PORT 0  "COM53" "115200,N,8,1,,0"
+
+TITLE "**** LineTop.scr START****"
+
+#include "Atok.sub"
+
+PRINT "This is a print message"
+
+#include "AtEr.sub"
+#include "title.sub"
+
+#include "Atok.sub"
+
+#include "AtEr.sub"
+#include "title.sub"
+
+PORT_CLOSE 0
+DELAY "1000"
+TITLE "**** LineTop.scr END****"

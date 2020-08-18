@@ -1,0 +1,37 @@
+TITLE "Test PIPE"
+
+CONST cQuote            "\22"
+CONST cAddrA            "00809814040f"
+CONST cBtConsoleVer     "v1.0.8"
+DECLARE vCmd
+DECLARE vResp
+DECLARE vWaitTime
+DECLARE vLen
+DECLARE vFullResp
+
+CONST vAppName "C:/Python37/python.exe"
+//CONST vAppName "EchoApp.exe"
+CONST vCurDir  "./"
+
+PRINT "vAppName=[vAppName]"
+PRINT "vCurDir =[vCurDir]"
+
+//JUMP aaa
+
+SET vResp ""
+PORT_PIPE 7 "[vAppName]" "[vCurDir]"
+DELAY "2000"
+FLUSHRX 7
+TXSTRING 7 "print([cQuote]Hello[cQuote])\r\n"
+DELAY "2000"
+WAITRESPEX 4000 7 "Hello"
+
+FLUSHRX 7
+
+
+TITLE "Test PIPE Close"
+PORT_CLOSE 7
+
+LABEL aaa
+
+//END
